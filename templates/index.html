@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- ================================================================
+         META TAGS - Informasi tentang halaman
+         ================================================================ -->
+    <meta charset="UTF-8">
+    <!-- charset="UTF-8": Mengatur encoding karakter ke UTF-8 (mendukung karakter Indonesia) -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: Membuat halaman responsive di mobile devices -->
+    
+    <title>🍎 Deteksi Kualitas Apel AI</title>
+    <!-- title: Judul yang muncul di tab browser -->
+    
+    <!-- ================================================================
+         LINK CSS - Menghubungkan file CSS eksternal
+         ================================================================
+         Penjelasan:
+         - rel="stylesheet": Menunjukkan bahwa ini adalah stylesheet
+         - href="/static/style.css": Path ke file CSS
+         - File CSS berisi semua styling untuk halaman
+         ================================================================ -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- ================================================================
+         MAIN CONTAINER - Kotak utama aplikasi
+         ================================================================ -->
+    <div class="container">
+        
+        <!-- ============================================================
+             HEADER - Bagian atas dengan judul
+             ============================================================ -->
+        <div class="header">
+            <h1><span>🍎</span> Deteksi Kualitas Apel AI</h1>
+            <!-- h1: Heading level 1 (judul utama) -->
+            <!-- span: Untuk membungkus emoji agar bisa di-style terpisah -->
+            
+            <p>Unggah gambar apel untuk mendeteksi kualitas secara otomatis menggunakan AI</p>
+            <!-- p: Paragraf deskripsi -->
+        </div>
+
+        <!-- ============================================================
+             UPLOAD AREA - Area untuk upload gambar
+             ============================================================ -->
+        <div class="upload-area" id="uploadArea">
+            <!-- id="uploadArea": Identifier untuk JavaScript -->
+            
+            <div class="upload-icon">📸</div>
+            <!-- Emoji kamera -->
+            
+            <div class="upload-text">Klik atau Drag & Drop Gambar</div>
+            <!-- Teks utama -->
+            
+            <div class="upload-subtext">Format: JPG, PNG, GIF (Max 16MB)</div>
+            <!-- Teks kecil dengan informasi format -->
+        </div>
+
+        <!-- ============================================================
+             FILE INPUT - Input file (disembunyikan)
+             ================================================================ -->
+        <input type="file" id="fileInput" accept="image/*">
+        <!-- type="file": Input untuk memilih file -->
+        <!-- id="fileInput": Identifier untuk JavaScript -->
+        <!-- accept="image/*": Hanya terima file gambar -->
+
+        <!-- ============================================================
+             PREVIEW CONTAINER - Menampilkan preview gambar
+             ================================================================ -->
+        <div class="preview-container" id="previewContainer">
+            <!-- id="previewContainer": Identifier untuk JavaScript -->
+            
+            <img id="previewImage" alt="Preview">
+            <!-- img: Gambar preview -->
+            <!-- id="previewImage": Identifier untuk JavaScript -->
+            <!-- alt="Preview": Teks alternatif jika gambar tidak bisa dimuat -->
+        </div>
+
+        <!-- ============================================================
+             PREDICT BUTTON - Tombol untuk memulai prediksi
+             ================================================================ -->
+        <button class="button" id="predictButton">🔍 Deteksi Kualitas Apel</button>
+        <!-- button: Tombol -->
+        <!-- class="button": Styling dari CSS -->
+        <!-- id="predictButton": Identifier untuk JavaScript -->
+
+        <!-- ============================================================
+             LOADING - Animasi loading saat prediksi berjalan
+             ================================================================ -->
+        <div class="loading" id="loading">
+            <!-- id="loading": Identifier untuk JavaScript -->
+            
+            <div class="spinner"></div>
+            <!-- Animasi spinner berputar -->
+            
+            <p style="color: #764ba2; font-weight: 600;">Menganalisis gambar...</p>
+            <!-- Teks loading -->
+        </div>
+
+        <!-- ============================================================
+             RESULT CONTAINER - Menampilkan hasil prediksi
+             ================================================================ -->
+        <div class="result-container" id="resultContainer"></div>
+        <!-- id="resultContainer": Identifier untuk JavaScript -->
+        <!-- Konten akan diisi oleh JavaScript -->
+
+        <!-- ============================================================
+             RESET BUTTON - Tombol untuk upload gambar baru
+             ================================================================ -->
+        <button class="button reset-button" id="resetButton">🔄 Upload Gambar Baru</button>
+        <!-- class="button reset-button": Styling dari CSS -->
+        <!-- id="resetButton": Identifier untuk JavaScript -->
+
+        <!-- ============================================================
+             EDUCATION BOX - Informasi edukasi dan larangan
+             ================================================================ -->
+        <div class="education-box">
+            <h3>⚠️ Panduan Penggunaan & Larangan</h3>
+            <!-- h3: Heading level 3 -->
+            
+            <ul>
+                <!-- ul: Unordered list (list tanpa nomor) -->
+                
+                <li><span class="success-text">✓ DIIZINKAN:</span>
+                    <!-- li: List item -->
+                    <!-- span: Untuk styling teks khusus -->
+                    
+                    <ul style="margin-top: 8px;">
+                        <li>Gambar apel yang jelas dan terang</li>
+                        <li>Format: JPG, PNG, GIF</li>
+                        <li>Ukuran file maksimal 16MB</li>
+                        <li>Apel dalam berbagai kondisi (segar, busuk, cacat)</li>
+                        <li>Gambar dengan latar belakang apapun</li>
+                    </ul>
+                </li>
+
+                <li style="margin-top: 15px;"><span class="warning-text">✗ DILARANG:</span>
+                    <ul style="margin-top: 8px;">
+                        <li>Gambar yang sangat gelap atau blur</li>
+                        <li>Format file selain JPG, PNG, GIF</li>
+                        <li>File lebih dari 16MB</li>
+                        <li>Gambar yang bukan apel (buah lain, benda, dll)</li>
+                        <li>Gambar dengan resolusi sangat rendah (&lt;100x100px)</li>
+                        <li>Mengunggah file berbahaya atau malware</li>
+                    </ul>
+                </li>
+
+                <li style="margin-top: 15px;"><span class="success-text">💡 TIPS TERBAIK:</span>
+                    <ul style="margin-top: 8px;">
+                        <li>Ambil foto apel dengan pencahayaan yang baik</li>
+                        <li>Pastikan apel terlihat jelas dan tidak tertutup</li>
+                        <li>Gunakan background yang kontras dengan apel</li>
+                        <li>Hindari bayangan yang terlalu gelap</li>
+                        <li>Jika ada beberapa apel, pastikan semuanya terlihat</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         SCRIPT - Menghubungkan file JavaScript eksternal
+         ================================================================
+         Penjelasan:
+         - src="/static/script.js": Path ke file JavaScript
+         - File JavaScript berisi semua logika interaktif halaman
+         - Script diletakkan di akhir body untuk performa lebih baik
+         ================================================================ -->
+    <script src="/static/script.js"></script>
+</body>
+</html>

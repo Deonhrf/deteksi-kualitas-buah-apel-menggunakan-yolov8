@@ -1,0 +1,397 @@
+/* ================================================================
+   STYLE.CSS - STYLING UNTUK APLIKASI DETEKSI KUALITAS APEL
+   ================================================================
+   File ini berisi semua CSS untuk styling halaman
+   Hubungan: Diimport di index1.html dengan <link rel="stylesheet" href="/static/style.css">
+   ================================================================ */
+
+/* ============================================================
+   RESET CSS - Menghapus styling default browser
+   ============================================================ */
+* {
+    margin: 0;  /* Hapus margin default */
+    padding: 0;  /* Hapus padding default */
+    box-sizing: border-box;  /* Hitung ukuran termasuk border dan padding */
+}
+
+/* ============================================================
+   BODY - Styling untuk seluruh halaman
+   ============================================================ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: Jenis font yang digunakan */
+    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* background: Gradient warna dari biru ke ungu */
+    
+    min-height: 100vh;  /* Minimal tinggi = tinggi viewport */
+    display: flex;  /* Gunakan flexbox untuk layout */
+    justify-content: center;  /* Pusatkan horizontal */
+    align-items: center;  /* Pusatkan vertikal */
+    padding: 20px;  /* Jarak dari tepi */
+}
+
+/* ============================================================
+   CONTAINER - Kotak utama aplikasi
+   ============================================================ */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    /* background: Warna putih dengan transparansi 95% */
+    
+    border-radius: 30px;  /* Sudut melengkung */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    /* box-shadow: Bayangan untuk efek kedalaman */
+    
+    padding: 40px;  /* Jarak dalam dari tepi */
+    max-width: 700px;  /* Lebar maksimal */
+    width: 100%;  /* Lebar penuh (responsive) */
+    backdrop-filter: blur(10px);  /* Efek blur di belakang */
+}
+
+/* ============================================================
+   HEADER - Bagian atas dengan judul
+   ============================================================ */
+.header {
+    text-align: center;  /* Teks rata tengah */
+    margin-bottom: 30px;  /* Jarak bawah */
+}
+
+.header h1 {
+    color: #764ba2;  /* Warna ungu */
+    font-size: 2.5em;  /* Ukuran font besar */
+    margin-bottom: 10px;  /* Jarak bawah */
+    display: flex;  /* Gunakan flexbox */
+    align-items: center;  /* Pusatkan vertikal */
+    justify-content: center;  /* Pusatkan horizontal */
+    gap: 15px;  /* Jarak antar elemen */
+}
+
+.header p {
+    color: #666;  /* Warna abu-abu */
+    font-size: 1.1em;  /* Ukuran font sedang */
+}
+
+/* ============================================================
+   UPLOAD AREA - Area untuk upload gambar
+   ============================================================ */
+.upload-area {
+    border: 3px dashed #667eea;  /* Border putus-putus biru */
+    border-radius: 20px;  /* Sudut melengkung */
+    padding: 50px 20px;  /* Jarak dalam */
+    text-align: center;  /* Teks rata tengah */
+    cursor: pointer;  /* Kursor berubah jadi pointer */
+    transition: all 0.3s ease;  /* Animasi smooth */
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    /* background: Gradient transparan */
+    
+    margin-bottom: 20px;  /* Jarak bawah */
+}
+
+.upload-area:hover {
+    /* Styling saat mouse hover */
+    border-color: #764ba2;  /* Border berubah warna */
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    /* Background lebih gelap */
+    
+    transform: scale(1.02);  /* Perbesar sedikit */
+}
+
+.upload-area.dragover {
+    /* Styling saat file di-drag ke area */
+    border-color: #ff6b6b;  /* Border berubah merah */
+    background: rgba(255, 107, 107, 0.1);  /* Background merah transparan */
+}
+
+.upload-icon {
+    font-size: 4em;  /* Ukuran emoji besar */
+    margin-bottom: 15px;  /* Jarak bawah */
+}
+
+.upload-text {
+    color: #764ba2;  /* Warna ungu */
+    font-size: 1.2em;  /* Ukuran font */
+    font-weight: 600;  /* Font tebal */
+    margin-bottom: 10px;  /* Jarak bawah */
+}
+
+.upload-subtext {
+    color: #999;  /* Warna abu-abu */
+    font-size: 0.9em;  /* Ukuran font kecil */
+}
+
+/* ============================================================
+   FILE INPUT - Input file (disembunyikan)
+   ============================================================ */
+#fileInput {
+    display: none;  /* Sembunyikan input file default */
+}
+
+/* ============================================================
+   PREVIEW CONTAINER - Menampilkan preview gambar
+   ============================================================ */
+.preview-container {
+    display: none;  /* Awalnya disembunyikan */
+    margin: 20px 0;  /* Jarak atas dan bawah */
+    text-align: center;  /* Teks rata tengah */
+}
+
+.preview-container img {
+    max-width: 100%;  /* Lebar maksimal 100% */
+    max-height: 300px;  /* Tinggi maksimal 300px */
+    border-radius: 15px;  /* Sudut melengkung */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);  /* Bayangan */
+}
+
+/* ============================================================
+   BUTTON - Tombol umum
+   ============================================================ */
+.button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* background: Gradient biru ke ungu */
+    
+    color: white;  /* Warna teks putih */
+    border: none;  /* Tidak ada border */
+    padding: 15px 40px;  /* Jarak dalam */
+    font-size: 1.1em;  /* Ukuran font */
+    border-radius: 50px;  /* Sudut sangat melengkung (pill shape) */
+    cursor: pointer;  /* Kursor pointer */
+    transition: all 0.3s ease;  /* Animasi smooth */
+    font-weight: 600;  /* Font tebal */
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);  /* Bayangan */
+    width: 100%;  /* Lebar penuh */
+    display: none;  /* Awalnya disembunyikan */
+}
+
+.button:hover {
+    /* Styling saat mouse hover */
+    transform: translateY(-2px);  /* Naik sedikit */
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);  /* Bayangan lebih besar */
+}
+
+.button:active {
+    /* Styling saat tombol ditekan */
+    transform: translateY(0);  /* Kembali ke posisi normal */
+}
+
+.button:disabled {
+    /* Styling saat tombol disabled */
+    background: #ccc;  /* Background abu-abu */
+    cursor: not-allowed;  /* Kursor tidak diizinkan */
+    box-shadow: none;  /* Tidak ada bayangan */
+}
+
+/* ============================================================
+   RESULT CONTAINER - Menampilkan hasil prediksi
+   ============================================================ */
+.result-container {
+    display: none;  /* Awalnya disembunyikan */
+    margin-top: 30px;  /* Jarak atas */
+    padding: 25px;  /* Jarak dalam */
+    border-radius: 20px;  /* Sudut melengkung */
+    animation: slideIn 0.5s ease;  /* Animasi masuk */
+}
+
+@keyframes slideIn {
+    /* Animasi slide in dari bawah */
+    from {
+        opacity: 0;  /* Awalnya transparan */
+        transform: translateY(20px);  /* Mulai dari bawah */
+    }
+    to {
+        opacity: 1;  /* Akhirnya opaque */
+        transform: translateY(0);  /* Posisi normal */
+    }
+}
+
+.result-success {
+    /* Styling untuk hasil sukses (ada deteksi) */
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    /* background: Gradient hijau */
+    
+    color: white;  /* Warna teks putih */
+}
+
+.result-fail {
+    /* Styling untuk hasil gagal (tidak ada deteksi) */
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    /* background: Gradient merah */
+    
+    color: white;  /* Warna teks putih */
+}
+
+.result-icon {
+    font-size: 3em;  /* Ukuran emoji besar */
+    margin-bottom: 15px;  /* Jarak bawah */
+}
+
+.result-title {
+    font-size: 1.8em;  /* Ukuran font besar */
+    font-weight: 700;  /* Font sangat tebal */
+    margin-bottom: 15px;  /* Jarak bawah */
+}
+
+.result-details {
+    font-size: 1.1em;  /* Ukuran font sedang */
+    line-height: 1.6;  /* Jarak antar baris */
+}
+
+/* ============================================================
+   RESULT STATS - Statistik hasil prediksi
+   ============================================================ */
+.result-stats {
+    display: grid;  /* Gunakan grid layout */
+    grid-template-columns: 1fr 1fr;  /* 2 kolom sama lebar */
+    gap: 15px;  /* Jarak antar kolom */
+    margin-top: 20px;  /* Jarak atas */
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.2);  /* Background putih transparan */
+    padding: 15px;  /* Jarak dalam */
+    border-radius: 15px;  /* Sudut melengkung */
+    backdrop-filter: blur(10px);  /* Efek blur */
+}
+
+.stat-label {
+    font-size: 0.9em;  /* Ukuran font kecil */
+    opacity: 0.9;  /* Sedikit transparan */
+    margin-bottom: 5px;  /* Jarak bawah */
+}
+
+.stat-value {
+    font-size: 1.5em;  /* Ukuran font besar */
+    font-weight: 700;  /* Font sangat tebal */
+}
+
+/* ============================================================
+   LOADING - Animasi loading
+   ============================================================ */
+.loading {
+    display: none;  /* Awalnya disembunyikan */
+    text-align: center;  /* Teks rata tengah */
+    margin-top: 20px;  /* Jarak atas */
+}
+
+.spinner {
+    border: 4px solid rgba(102, 126, 234, 0.3);  /* Border transparan */
+    border-top: 4px solid #667eea;  /* Border atas biru */
+    border-radius: 50%;  /* Bentuk lingkaran */
+    width: 50px;  /* Lebar */
+    height: 50px;  /* Tinggi */
+    animation: spin 1s linear infinite;  /* Animasi berputar */
+    margin: 0 auto 15px;  /* Pusatkan dan jarak bawah */
+}
+
+@keyframes spin {
+    /* Animasi berputar */
+    0% { transform: rotate(0deg); }  /* Mulai dari 0 derajat */
+    100% { transform: rotate(360deg); }  /* Akhir di 360 derajat */
+}
+
+.reset-button {
+    /* Styling khusus untuk tombol reset */
+    background: white;  /* Background putih */
+    color: #764ba2;  /* Warna teks ungu */
+    margin-top: 15px;  /* Jarak atas */
+    border: 2px solid #764ba2;  /* Border ungu */
+}
+
+.reset-button:hover {
+    /* Styling saat hover */
+    background: #764ba2;  /* Background ungu */
+    color: white;  /* Warna teks putih */
+}
+
+/* ============================================================
+   EDUCATION BOX - Kotak edukasi dan larangan
+   ============================================================ */
+.education-box {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+    /* background: Gradient kuning transparan */
+    
+    border-left: 5px solid #ffc107;  /* Border kiri kuning */
+    padding: 20px;  /* Jarak dalam */
+    border-radius: 10px;  /* Sudut melengkung */
+    margin-top: 30px;  /* Jarak atas */
+    font-size: 0.95em;  /* Ukuran font sedikit kecil */
+    color: #333;  /* Warna teks gelap */
+}
+
+.education-box h3 {
+    color: #ff9800;  /* Warna judul oranye */
+    margin-bottom: 10px;  /* Jarak bawah */
+    display: flex;  /* Gunakan flexbox */
+    align-items: center;  /* Pusatkan vertikal */
+    gap: 8px;  /* Jarak antar elemen */
+}
+
+.education-box ul {
+    margin-left: 20px;  /* Jarak kiri untuk list */
+    line-height: 1.8;  /* Jarak antar baris */
+}
+
+.education-box li {
+    margin-bottom: 8px;  /* Jarak bawah setiap item */
+}
+
+.warning-text {
+    color: #d32f2f;  /* Warna merah untuk warning */
+    font-weight: 600;  /* Font tebal */
+}
+
+.success-text {
+    color: #388e3c;  /* Warna hijau untuk success */
+    font-weight: 600;  /* Font tebal */
+}
+
+/* ============================================================
+   DETAILED RESULT - Hasil detail prediksi
+   ============================================================ */
+.detailed-result {
+    background: rgba(255, 255, 255, 0.1);  /* Background putih transparan */
+    padding: 20px;  /* Jarak dalam */
+    border-radius: 15px;  /* Sudut melengkung */
+    margin-top: 20px;  /* Jarak atas */
+    backdrop-filter: blur(10px);  /* Efek blur */
+}
+
+.result-item {
+    margin-bottom: 15px;  /* Jarak bawah */
+    padding-bottom: 15px;  /* Jarak bawah padding */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);  /* Border bawah */
+}
+
+.result-item:last-child {
+    border-bottom: none;  /* Hapus border bawah item terakhir */
+    margin-bottom: 0;  /* Hapus margin bawah */
+    padding-bottom: 0;  /* Hapus padding bawah */
+}
+
+.result-label {
+    font-size: 0.9em;  /* Ukuran font kecil */
+    opacity: 0.8;  /* Sedikit transparan */
+    margin-bottom: 5px;  /* Jarak bawah */
+}
+
+.result-value {
+    font-size: 1.2em;  /* Ukuran font sedang */
+    font-weight: 600;  /* Font tebal */
+}
+
+/* ============================================================
+   RESPONSIVE - Styling untuk mobile
+   ============================================================ */
+@media (max-width: 600px) {
+    /* Untuk layar kecil (mobile) */
+    .container {
+        padding: 20px;  /* Jarak dalam lebih kecil */
+    }
+
+    .header h1 {
+        font-size: 1.8em;  /* Font lebih kecil */
+    }
+
+    .result-stats {
+        grid-template-columns: 1fr;  /* 1 kolom saja */
+    }
+}
