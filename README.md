@@ -10,7 +10,7 @@ Aplikasi "Deteksi Kualitas Apel AI" merupakan solusi inovatif yang dirancang unt
 
 
 
-### *** Teknologi yang Digunakan: ***
+Teknologi yang Digunakan : 
 -  YOLOv8: Model deteksi objek efisien 🤖
 
 - Python: Backend aplikasi 🐍
