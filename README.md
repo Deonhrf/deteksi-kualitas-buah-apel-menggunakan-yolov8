@@ -5,26 +5,17 @@ Aplikasi "Deteksi Kualitas Apel AI" merupakan solusi inovatif yang dirancang unt
 
 
 
+
 Teknologi yang Digunakan:
 
 -  YOLOv8: Model deteksi objek efisien 🤖
 
-🐍 Python: Backend aplikasi.
+- Python: Backend aplikasi 🐍
 
-🌐 Flask: Framework web.
+- Flask: Framework web 🌐
 
-🎨 CSS & JS: Antarmuka responsif.
+- CSS & JS: Antarmuka responsif 🎨
 
-Manfaat:
-Membantu petani dan pedagang memastikan kualitas apel, meningkatkan kepuasan pelanggan, dan mengurangi kerugian.
-
-Cara Penggunaan:
-
-📥 Unggah gambar apel.
-
-⏳ Tunggu proses analisis.
-
-🔍 Lihat hasil penilaian kualitas.
 
 
 
